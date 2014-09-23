@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * This class implements the union find algorithm to generate a maze
+ * This class implements the disjoint set algorithm to generate a maze
  * 
  * @author Lawrence Moore
  *
@@ -50,19 +50,8 @@ public class GraphGenerator {
 	}
 
 	public void generateConnections() {
-		for (int i = 0; i < vertArr.length; i ++) {
+		for (int i = 0; i < 2 * vertArr.length - vertArr.length / 2; i ++) {
 			int position1 = i;
-			int position2 = rand.nextInt(vertArr.length);
-			if (find(vertArr[position1].vertex) != find(vertArr[position2].vertex)) {
-				union(vertArr[position1].vertex, vertArr[position2].vertex);
-				adjList.addEdge(vertArr[position1].vertex, vertArr[position2].vertex);
-				vertexSet.add(vertArr[position1].vertex);
-				vertexSet.add(vertArr[position2].vertex);
-			}
-		}
-		
-		for (int i = 0; i < vertArr.length / 2; i ++) {
-			int position1 = rand.nextInt(vertArr.length);
 			int position2 = rand.nextInt(vertArr.length);
 			if (find(vertArr[position1].vertex) != find(vertArr[position2].vertex)) {
 				union(vertArr[position1].vertex, vertArr[position2].vertex);
