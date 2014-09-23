@@ -51,7 +51,7 @@ public class GraphGenerator {
 
 	public void generateConnections() {
 		for (int i = 0; i < 2 * vertArr.length - vertArr.length / 2; i ++) {
-			int position1 = i;
+			int position1 = i % vertArr.length;
 			int position2 = rand.nextInt(vertArr.length);
 			if (find(vertArr[position1].vertex) != find(vertArr[position2].vertex)) {
 				union(vertArr[position1].vertex, vertArr[position2].vertex);
